@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".activity.MainActivity">
+
+
+    <SearchView
+        android:id="@+id/searchView_activity_main_1"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/tv_seacrh_movie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/listView_activity_main_3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ListView
+        android:id="@+id/listView_activity_main_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/editText_activity_main_1" />
+
+
+</android.support.constraint.ConstraintLayout>

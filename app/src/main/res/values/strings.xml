@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CatalogMovie</string>
+
+    <string name="api_key">ec067956bcd6ac32f62ff0a1a4828dfb</string>
+    <string name="tv_seacrh_movie">Seacrh Movie...</string>
+    <string name="tv_title_movie">Title Movie</string>
+    <string name="tv_popularity">Popularity</string>
+    <string name="tv_release_date">Release Date</string>
+    <string name="tv_overview">Overview</string>
+    <string name="btn_kembali">KEMBALI</string>
+</resources>
