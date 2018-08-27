@@ -53,7 +53,6 @@ public class AdapterListMovie extends BaseAdapter{
             viewHolder = new ViewHolder(convertView);
             viewHolder.textViewTitle = convertView.findViewById(R.id.textView_main_item_3_2);
             viewHolder.textViewPopularity = convertView.findViewById(R.id.textView_main_item_3_3);
-            //viewHolder.textViewOverview = convertView.findViewById(R.id.textView_activity_detail_movie_1_1_4);
             viewHolder.textViewRelease = convertView.findViewById(R.id.textView_main_item_3_4);
 
             convertView.setTag(viewHolder);
@@ -108,24 +107,4 @@ public class AdapterListMovie extends BaseAdapter{
             cardViewMainItem = view.findViewById(R.id.cardView_main_item_3);
         }
     }
-
-//    // Filter Class
-//    public void filter(String charText) {
-//        charText = charText.toLowerCase(Locale.getDefault());
-//        this.main.itemsModel.clear();
-//        if (charText.length() == 0) {
-//            this.main.itemsModel.addAll(arraylistitem);
-//        }
-//        else
-//        {
-//            for (ModelItems wp : arraylistitem)
-//            {
-//                if (wp.getName().toLowerCase(Locale.getDefault()).contains(charText))
-//                {
-//                    this.main.itemsModel.add(wp);
-//                }
-//            }
-//        }
-//        notifyDataSetChanged();
-//    }
 }

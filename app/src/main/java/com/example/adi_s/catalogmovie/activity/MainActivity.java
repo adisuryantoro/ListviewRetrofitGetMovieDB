@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity{
     TextView textViewTitle, textViewPopularity, textViewRelease;
     List<Result> mDataListMovie;
     AdapterListMovie adapterListMovie;
-    SearchView searchViewMovie;
+    EditText editTextSearch;
+    Button buttonSearch;
 
     private String MOVIE_LIST = "https://api.themoviedb.org/3/search/movie?api_key=ec067956bcd6ac32f62ff0a1a4828dfb&language=en-US&query=";
 
@@ -54,8 +56,10 @@ public class MainActivity extends AppCompatActivity{
         textViewPopularity = findViewById(R.id.textView_main_item_3_3);
         textViewRelease = findViewById(R.id.textView_main_item_3_4);
         listViewMainActivity = findViewById(R.id.listView_activity_main_3);
-        searchViewMovie = findViewById(R.id.searchView_activity_main_1);
+        editTextSearch = findViewById(R.id.editText_activity_main_1_1);
+        buttonSearch = findViewById(R.id.button_activity_main_1_2);
 
+        //MOVIE_LIST = new Adapter()
 
         doApiMovieCall();
 
@@ -76,7 +80,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void doApiMovieCall(){
-        ApiMovieInterface apiMovieInterface = ApiMovieClient.createServiceClient(ApiMovieInterface.class);
+        final ApiMovieInterface apiMovieInterface = ApiMovieClient.createServiceClient(ApiMovieInterface.class);
 
         Call<DataListMovie> getNoticeListMovie = apiMovieInterface.getDataListMovie("popular", getString(R.string.api_key));
         getNoticeListMovie.enqueue(new Callback<DataListMovie>() {
@@ -92,6 +96,34 @@ public class MainActivity extends AppCompatActivity{
             public void onFailure(Call<DataListMovie> call, Throwable t) {
                 Toast.makeText(MainActivity.this, ""+ t.getMessage(),
                         Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        buttonSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String keyword = editTextSearch.getText().toString();
+                Log.d("Main Activity", "onClick: Keyword =" + keyword);
+                if (! keyword.isEmpty()){
+                    apiMovieInterface.getSearchMovies(getString(R.string.api_key), "en-US", keyword).enqueue(new Callback<DataListMovie>() {
+                        @Override
+                        public void onResponse(Call<DataListMovie> call, Response<DataListMovie> response) {
+                            if (response.code() == 200) {
+                                mDataListMovie.clear();
+                                mDataListMovie.addAll(response.body().getResults());
+                            }
+                            adapterListMovie.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onFailure(Call<DataListMovie> call, Throwable t) {
+
+                        }
+                    });
+                }else {
+                    Toast.makeText(MainActivity.this, "Masukkan Kata pencarian", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });

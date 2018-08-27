@@ -1,30 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
 
-    <SearchView
-        android:id="@+id/searchView_activity_main_1"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/tv_seacrh_movie"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/listView_activity_main_3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/contraintLayout_activity_main_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
+        <EditText
+            android:id="@+id/editText_activity_main_1_1"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
+            android:ems="10"
+            android:hint="@string/tv_seacrh_movie"
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_activity_main_1_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_activity_main_1_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="Search"
+            android:textColor="@color/colorIconsWhite"
+            android:textSize="8pt"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/editText_activity_main_1_1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/editText_activity_main_1_1"
+            app:layout_constraintTop_toTopOf="@id/editText_activity_main_1_1" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <ListView
         android:id="@+id/listView_activity_main_3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/editText_activity_main_1" />
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"/>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
