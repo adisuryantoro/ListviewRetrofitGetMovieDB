@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity{
 
                 Intent intent = new Intent(MainActivity.this, DetailMovieActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         });

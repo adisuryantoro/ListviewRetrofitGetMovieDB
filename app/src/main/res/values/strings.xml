@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CatalogMovie</string>
+    <string name="app_name">MovieOne</string>
 
     <string name="api_key">ec067956bcd6ac32f62ff0a1a4828dfb</string>
     <string name="tv_seacrh_movie">Seacrh Movie...</string>
